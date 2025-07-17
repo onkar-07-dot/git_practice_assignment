@@ -1,9 +1,9 @@
 let a = 100;
 
 if(a%2==0){
-    console.log("This number is even number");
+    console.log("the number is divisible by two then ,This number is even number");
 
 }
 else{
-    console.log("This number is odd number");
+    console.log("the number is not divisible by two then ,This number is odd number");
 }
