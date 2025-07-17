@@ -1,9 +1,9 @@
 let a = 100;
 
 if(a%2==0){
-    console.log("even number");
+    console.log("This number is even number");
 
 }
 else{
-    console.log("odd number");
+    console.log("This number is odd number");
 }
