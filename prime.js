@@ -1,4 +1,6 @@
-let num=12;
+
+// this is code for the find the given number is prime or not.
+let num=1100;
 
 if(num<=1){
     console.log("prime number")
@@ -10,12 +12,12 @@ if(num>=2){
 
         if(num%i==0){
 
-            console.log(" prime ")
+            console.log("  the number is not prime number ")
         }
 
         else{
 
-            console.log("not prime ")
+            console.log("the numberis prime number ")
         }
     }
 }
