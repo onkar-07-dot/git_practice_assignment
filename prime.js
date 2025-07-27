@@ -1,23 +1,30 @@
+// find the elements whose neibour is prime number in the given array.
 
-// this is code for the find the given number is prime or not.
-let num=1100;
+let arr = [3,4,5,6,7,8];
+let count=0;
 
-if(num<=1){
-    console.log("prime number")
+for(let i =0 ; i<arr.length;i++){
 
-}
-if(num>=2){
-
-    for(let i = 2 ;i<num ; i++ ){
-
-        if(num%i==0){
-
-            console.log("  the number is not prime number ")
-        }
-
-        else{
-
-            console.log("the numberis prime number ")
-        }
+    if(prime(arr[i-1])  || prime(arr[i+1])){
+        console.log(arr[i])
+        count++;
     }
 }
+
+ function prime(num){
+
+    for(let i=2;i<num;i++){
+
+        if(num%i!=0){
+
+            return true;
+        }
+        else{
+
+            return false;
+        }
+    }    
+
+}
+
+console.log(count);
