@@ -1,0 +1,198 @@
+<!-- Media Query Layout  -->
+
+
+
+<html>
+
+<head>
+    <title> Layout-4</title>
+</head>
+
+<body>
+
+    <style>
+
+        #media{
+
+            display: grid;
+            grid-template-columns:repeat(4,1fr);
+            grid-template-rows: repeat(1,1fr);
+            width:auto;
+            gap:20px;
+             /* margin-left:80px; */
+             text-align:center;
+             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+             margin-bottom: 100px;
+           
+            
+            
+        }
+
+            img{
+
+                width:100%;
+                justify-content: space-evenly;
+               
+            }
+
+            #button{
+                text-align:left;
+                margin-left:2px;
+            }
+
+            #media > div:nth-child(1){
+
+                background-color: rgb(222, 219, 214);
+            }
+            #media > div:nth-child(2){
+
+                background-color: rgb(222, 219, 214);
+            }
+            #media > div:nth-child(3){
+
+                background-color: rgb(222, 219, 214);
+            }
+            #media > div:nth-child(4){
+
+                background-color: rgb(222, 219, 214);
+            }
+     
+
+            #service{
+
+                grid-template-columns: repeat(3,200px);
+                grid-template-rows: repeat(2,200px);
+                margin-top:50px;
+                justify-content: center; 
+                display: grid;
+                text-align: center;
+                gap:50px;
+
+            }
+
+            
+
+            h1{
+                text-align: center;
+                color:orange
+               
+            }
+
+            h4{
+
+                margin-bottom: 100px;
+            }
+
+
+            @media all and (min-width:750px) and (max-width:1000px){
+                 #media{
+
+           
+            grid-template-columns:repeat(2,350px);
+            grid-template-rows: repeat(3,400px);
+            gap:20px;
+            
+
+            }
+
+            #service{
+
+                grid-template-columns: repeat(2,200px);
+                grid-template-rows: repeat(3,200px);
+            }
+
+            
+        }
+
+         @media all and (min-width:400px) and (max-width:740px){
+                 #media{
+
+           
+            grid-template-columns:1fr;
+            /* grid-template-rows: repeat(6,1fr); */
+            margin-left: 0px;
+            
+
+            }
+
+            #service{
+
+                grid-template-columns: 1fr;
+                /* grid-template-rows: repeat(6,1fr); */
+            }
+
+            
+        } 
+       
+        
+
+        
+    </style>
+
+    <h1 style="text-align: center;"> Our Specialist</h1>
+    <div id="media">
+
+        <div>
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg" alt="">
+            <h2>Ethel Davis</h2>
+            <p>I am ethel davis, Senior faculty in plastic surgery.</p>
+            <button style="color:rgb(8, 120, 161);border-radius: 10px;;">Know more</button>
+            <button style="margin-left: 160px; margin-top: 20px;border-radius: 10px;background-color: orange; color:white">Book Now</button>           
+        </div>
+        <div>
+          <img src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+            <h2>Dand Morries</h2>
+            <p>I am dand morries, Junior surgeon of heart.</p>
+            <button style="color:rgb(8, 120, 161);border-radius: 10px;;">Know more</button>
+            <button style="margin-left: 160px; margin-top: 20px;border-radius: 10px;background-color: orange; color:white">Book Now</button>           
+        </div>
+        <div>
+            <img src="https://www.shutterstock.com/image-photo/medical-concept-indian-beautiful-female-600nw-1635029716.jpg" alt="">
+            <h2>Align Board</h2>
+            <p>I am Align borad, I am Dentist</p>
+            <button style="color:rgb(8, 120, 161);border-radius: 10px;">Know more</button>
+            <button style="margin-left: 160px; margin-top: 20px;border-radius: 10px;background-color: orange; color:white">Book Now</button>           
+        </div>
+        <div>
+            <img src="https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg" alt="">
+            <h2>Jeson Smith</h2>
+            <p>I am Jeson Smith, I have 4 yrs of experince</p>
+            <button style="color:rgb(8, 120, 161);border-radius: 10px;">Know more</button>
+            <button style="margin-left: 160px; margin-top: 20px;border-radius: 10px;background-color: orange; color:white">Book Now</button>           
+        </div>
+    </div>
+
+
+     
+            <h1>Our Health Services</h1>
+    <div id="service">
+
+        <!-- <h2> Our Health Services</h2> -->
+
+        <div>
+            <img src="https://cdn-icons-png.flaticon.com/512/12110/12110712.png" alt="">
+            <h4>All health Services</h4>
+        </div>
+        <div>
+             <img src="https://cdn-icons-png.flaticon.com/512/12110/12110712.png" alt="">
+            <h4>All health Services</h4>
+        </div>
+        <div>
+             <img src="https://cdn-icons-png.flaticon.com/512/12110/12110712.png" alt="">
+            <h4>All health Services</h4>
+        </div>
+        <div>
+             <img src="https://cdn-icons-png.flaticon.com/512/12110/12110712.png" alt="">
+            <h4>All health Services</h4>
+        </div>
+        <div>
+             <img src="https://cdn-icons-png.flaticon.com/512/12110/12110712.png" alt="">
+            <h4>All health Services</h4>
+        </div>
+        <div>
+             <img src="https://cdn-icons-png.flaticon.com/512/12110/12110712.png" alt="">
+            <h4>All health Services</h4>
+        </div>
+    </div>
+</body>
+</html>
