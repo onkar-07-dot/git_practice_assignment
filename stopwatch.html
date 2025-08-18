@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Asynchronous Programming</title>
+    </head>
+
+<body>
+    
+    <style>
+
+       
+
+      body{
+
+         background-color: rgb(163, 190, 198);
+      }
+       #stop{
+
+        display: flex;
+        justify-content:center;
+        justify-items: center;
+       
+        
+        
+       }
+
+       #stop > div{
+
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+       font-size: 100px;
+         padding:30px;
+        margin:30px;
+        background-color: rgb(53, 172, 223);
+         
+       }
+       h1{
+
+        text-align: center;
+       }
+        </style>
+
+
+       <h1>Timer</h1>
+       <div id="stop">
+        <div id="hrs">16</div>
+        
+        <div id="min">12</div>
+        
+        <div id="sec">33</div>
+        
+        <div id="ampm" >AM</div>
+       </div>
+        </body>
+</html>
+
+<script>
+
+
+function watch(){
+    let date= new Date()
+
+let hr = date.getHours()
+let min = date.getMinutes()
+let sec = date.getSeconds()
+let half=''
+if(hr>=12){
+
+    half="PM"
+}
+else{
+    half="AM"
+}
+
+console.log(document.querySelector("#hrs").innerText=hr)
+console.log(document.querySelector("#min").innerText=min)
+console.log(document.querySelector("#sec").innerText=sec)
+console.log(document.querySelector("#ampm").innerText=half)
+setInterval(watch,1000)
+}
+
+watch()
+
+
+
+</script>
