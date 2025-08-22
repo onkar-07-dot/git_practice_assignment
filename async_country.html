@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Promises</title>
+    </head>
+    <body>
+        <style>
+
+           #container{
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(auto);
+            /* gap:30px; */
+            justify-items: center;
+            justify-content:center;
+            
+            
+
+
+           }
+
+           img{
+            margin:auto  ;
+            /* width: 50%; */
+            justify-items: center;
+            
+           }
+
+           #container >div{
+
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            justify-items: center;
+            margin:auto auto 20px auto
+           }
+            h1{
+                text-align: center;
+            }
+
+           
+
+            select{
+
+                padding:20px 20px 20px 20px;
+                font-size: 50px;
+                margin:auto auto 50px
+                
+            }
+        </style>
+
+        <h1>Fetch Information</h1>
+        <select onchange="handle_regions()">
+            <option value="Asia">Asia</option>
+            <option value="Africa">Africa</option>
+            <option value="Americas">America</option>
+        </select>
+
+
+        <div id="container"></div>
+
+        
+
+    </body>
+    </html>
+    <script>
+      
+      let x ="https://restcountries.com/v3.1/all?fields=name,flags,capital,region,population"
+
+      let data=[]
+
+      async function getdata(){
+
+         let res = await(fetch(x))
+         
+        let out = await(res.json())
+      // console.log(out)
+         data = [...out]
+        
+        displaycards(out)
+        
+       
+      }
+
+       console.log(data)
+
+      
+
+
+      getdata()
+
+      function handle_regions(){
+         let selected = document.querySelector("select").value
+         let fill = data.filter(function(ele){
+          return ele.region == selected;
+      
+         });
+    console.log(fill)
+    displaycards(fill)
+}
+    //   handle_regions()
+     
+
+      function displaycards(arr){
+
+     document.querySelector("#container").innerHTML=""
+
+        for(let i=0;i<arr.length;i++){
+
+            let div = document.createElement("div")
+
+            let img = document.createElement("img")
+            img.setAttribute("src",arr[i].flags.png)
+
+            let name = document.createElement("h2")
+            name.innerText= arr[i].name.common
+
+            let capital = document.createElement("p")
+            capital.innerText= arr[i].capital
+
+            let region = document.createElement("p")
+            region.innerText= arr[i].region
+
+            let population = document.createElement("p")
+            population.innerText= arr[i].population
+
+            div.append(img,name,capital,region,population)
+
+            document.querySelector("#container").append(div)
+
+        }
+
+      }
+       
+
+    </script>
