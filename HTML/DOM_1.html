@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Document Object Model</title>
+    </head>
+
+    <body>
+
+        <h2 id="heading"> This is heading tag,<i> and it is good</i></h2>
+         <button onclick="my_function()"> Like </button>
+         <button onclick="login_fun()">Login</button>
+
+      <h2 id="change"> this is h2 tag</h2>
+     <h2 id="in"> Click on login</h2>
+      <button onclick="login_fun()">Login</button>
+
+      
+
+
+
+
+
+    </body>
+</html>
+
+<script>
+
+            console.log("hello")
+            console.log(typeof document)
+            console.log(document.title)
+            console.log(document.URL)
+            console.log(document.head)
+            console.log(document.body)
+
+            console.log(document.getElementById("heading"))
+             console.log(document.getElementById("heading").innerText) 
+             console.log(document.getElementById("heading").innerHTML) 
+            console.log(heading.innerHTML)
+           
+            let count=0
+            function my_function(){
+             count++   
+           // console.log("someone click like button",count+" times");
+         alert("someone liked me")    
+        }
+
+        function login_fun(){
+
+            document.getElementById("in").innerText="login successfully "
+
+
+            
+        }
+
+        (document.getElementById("change").innerText )="this is updated h2 tag"
+        </script>

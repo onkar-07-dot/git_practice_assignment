@@ -1,0 +1,52 @@
+
+
+<!-- <!DOCTYPE html> -->
+<html>
+       <head>
+
+        <title>Form</title>
+
+        <link rel="stylesheet" href="C:\Users\onkar\OneDrive\Desktop\CPP\HTML\getdata.html">
+       </head>
+
+       <body>
+
+        <h2 style="text-align: center;color: navy;">Application Form</h2>
+        <div style="text-align: center;
+                     height: 300px;
+                     width: 500px;
+                     border:1px solid;
+                     margin:10px 100px 10px 550px;
+                     background-color: rgb(230, 226, 170);
+                    "
+                     >
+                <h3>Enter Your Details</h3>
+
+                <input id="f" type="text"placeholder="Enter your First Name " /><br><br>
+                <input id="l" type="text" placeholder="Enter your Last Name " /><br><br>
+                 <input id="e" type="email" placeholder="Enter your Email" /><br><br>
+                  <input id="m" type="number" placeholder="Enter your mobile Number" /><br><br>
+                   <input id="d" type="date"  /><br><br>
+                  <a  href="http://127.0.0.1:5500/getdata.html" target="_blank"> <button onclick="fun()" style="background-color: rgb(133, 242, 133);">Submit</button></a>
+                     </a>
+                </div>
+
+
+               
+                
+             
+        
+        
+       </body>
+
+       
+</html>
+
+<script>
+
+       function fun(){
+
+              let name=document.getElementById("f").value
+              document.getElementById("name").innerText=name
+       }
+</script>

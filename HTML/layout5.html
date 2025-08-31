@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <title> Layout-5</title>
+    <style>
+        /* Upper Lab Test Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            width: 80%;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .grid > div {
+            background-color: rgb(249, 248, 246);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .grid img {
+            width: 40%;
+            height: auto;
+            padding: 10px;
+        }
+
+        #info {
+            margin-left: 20px;
+        }
+
+        button {
+            border-radius: 5px;
+            color: white;
+            border: none;
+            padding: 10px;
+            background-color: rgb(6, 123, 212);
+            cursor: pointer;
+        }
+
+        /* Middle Appointment Section */
+        .appoint {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .appoint > div {
+            background-color: rgb(249, 248, 246);
+            padding: 20px;
+        }
+
+        .pic img {
+            height: 150px;
+            width: auto;
+        }
+
+        /* Lower Book Our Doctor Section */
+        #last {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin: 50px auto;
+            gap: 20px;
+        }
+
+        #last > div:nth-child(1) {
+            flex: 1;
+            background-color: rgb(249, 248, 246);
+            text-align: left;
+            padding: 20px;
+        }
+
+        #last > div:nth-child(2) {
+            flex: 2;
+            background-color: rgb(249, 248, 246);
+            display: flex;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
+        #doctor {
+            display: flex;
+            gap: 20px;
+        }
+
+        #doctor .pic {
+            text-align: center;
+        }
+
+        #doctor .pic img {
+            height: 200px;
+            width: auto;
+            border-radius: 5px;
+        }
+
+        /* Responsive */
+        @media all and (min-width:400px) and (max-width:780px) {
+            .grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+            }
+
+            .grid > div {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .grid img {
+                width: 100%;
+                height: auto;
+            }
+
+            .appoint {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(3, auto);
+            }
+
+            #last {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #doctor {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align: center;">North East Largest Network For Health Care</h2>
+    <p style="text-align: center;">Find best doctor across specialties for hospitals in your city</p>
+
+    <!-- Upper Grid -->
+    <div class="grid">
+        <div>
+            <img src="https://cdn.prod.website-files.com/67a429737852744b0f8481b6/67a429737852744b0f8486a4_12%201.png" />
+            <div id="info">
+                <h3>Book Lab Test</h3>
+                <p>It's fast, easy and secure</p>
+                <button>Find Diagnostic Center</button>
+            </div>
+        </div>
+        <div>
+            <img src="https://cdn.openviowebsites.com/source/sites/d33e65a8-5b92-4bf9-91f5-1c3d92a4af2c/images/blood-test-thumb-1.webp" />
+            <div id="info">
+                <h3>Book Lab Test</h3>
+                <p>It's fast, easy and secure</p>
+                <button>Find Diagnostic Center</button>
+            </div>
+        </div>
+        <div>
+            <img src="https://www.aksharimaging.com/blog/wp-content/uploads/2024/06/Blood-Tests-for-Diabetes.jpg" />
+            <div id="info">
+                <h3>Book Lab Test</h3>
+                <p>It's fast, easy and secure</p>
+                <button>Find Diagnostic Center</button>
+            </div>
+        </div>
+        <div>
+            <img src="https://www.metropolisindia.com/upgrade/blog/upload/2020/09/feature-753x500-1.png" />
+            <div id="info">
+                <h3>Book Lab Test</h3>
+                <p>It's fast, easy and secure</p>
+                <button>Find Diagnostic Center</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Middle Appointment Section -->
+    <h2 style="margin-top: 60px;text-align: center">Discover the Online Appointment!</h2>
+    <p style="text-align: center;">A step by step guide to build an on-demand appointment for patients</p>
+
+    <div class="appoint">
+        <div class="pic">
+            <img src="https://www.metropolisindia.com/upgrade/blog/upload/2020/09/feature-753x500-1.png" alt="">
+            <h3>Find Doctor</h3>
+            <p>With more than 1000+ doctors and mission to provide best health care service</p>
+        </div>
+        <div class="pic">
+            <img src="https://cdn.prod.website-files.com/65fda7b5fdef3cef45c71e36/660a91808e49b57ee2409472_655b6616bb8a0c6df94ea19b_Screenshot%25202023-11-20%2520214802.jpeg" />
+            <h3>Find Doctor</h3>
+            <p>With more than 1000+ doctors and mission to provide best health care service</p>
+        </div>
+        <div class="pic">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-fRM7MvvjpSR-zPRoVIujBCxMSeKoIB92jAZcK4jPCFsuZTa_82G21hxSowBQzn8oPtY&usqp=CAU" alt="">
+            <h3>Find Doctor</h3>
+            <p>With more than 1000+ doctors and mission to provide best health care service</p>
+        </div>
+    </div>
+
+    <!-- Lower Book Our Doctor Section -->
+    <div id="last">
+        <div>
+            <h3>Book Our Doctor</h3>
+            <p>Quick Appointment with doctor</p>
+            <p>QuickBook is an Online Portal for all your health needs.</p>
+            <p>Our team of medical experts is there for you from finding the right doctor and hospital to booking appointments and giving any kind of medical help in between.</p>
+            <button>View All</button>
+        </div>
+
+        <div id="doctor">
+            <div class="pic">
+                <img src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+                <h4>Dr. Harris Morris</h4>
+            </div>
+            <div class="pic">
+                <img src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+                <h4>Dr. Harris Morris</h4>
+            </div>
+            <div class="pic">
+                <img src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+                <h4>Dr. Harris Morris</h4>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

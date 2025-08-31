@@ -1,0 +1,67 @@
+<!-- Grid structures -->
+
+<!-- placement using line -->
+
+<!-- placement using area-name  -->
+
+
+<html>
+    <head>
+        <title> Grid</title>
+    </head>
+    <body>
+
+        <style>
+
+            #container{
+
+                display: grid;
+                grid-template-rows: 300px   ;
+                grid-template-columns: 100px 100px 100px 100px;
+                gap: 10px;
+                
+                /* justify-content: center; */
+
+                
+            }
+
+            #container > div:nth-child(1){
+
+                background-color: red;
+              
+              
+    
+
+            }
+            #container > div:nth-child(2){
+
+                background-color: rgb(17, 34, 160);
+              
+
+            }
+            #container > div:nth-child(3){
+
+                background-color: rgb(154, 200, 218);
+                
+
+            }
+            #container > div:nth-child(4){
+
+                background-color: rgb(123, 220, 66);
+             
+
+            }
+            
+        </style>
+
+
+        <div id="container">
+
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            
+        </div>
+    </body>
+</html>

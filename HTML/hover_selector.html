@@ -1,0 +1,54 @@
+<!-- pseudo elements and class -->
+
+
+<html>
+    <body>
+
+        <style>
+
+            input[type="date"]{
+
+                width: 300px;
+            }
+
+            button:hover{
+
+                color: red;
+                background-color: yellow;
+                cursor: pointer;
+            }
+
+
+            input:focus{
+
+                background-color:rgb(237, 133, 201);
+            }
+
+            h1::first-letter{
+                color: red;
+                background-color: rgb(204, 227, 115);
+            }
+            div>h1:nth-child(1){
+
+                color: red;
+                background-color: teal;
+            }
+
+
+        </style>
+
+        <input type="text"/><br><br>
+        <input type="date"/><br><br>
+    
+        <input type="email"/><br><br>
+        <input type="number"/><br><br>
+        <input type="date"/><br><br>
+        <div>
+        <h1> I am 1st h1 tag</h1>
+        <h1> I am 2nd h1 tag</h1>
+        <h1> I am 3rd h1 tag</h1>
+        <h1> I am 4th h1 tag</h1>
+        <button> click me I am button</button>
+        </div>  
+    </body>
+</html>

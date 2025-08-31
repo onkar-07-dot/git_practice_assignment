@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+
+         <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> Promises</title>
+    </head>
+    <body>
+
+
+    </body>
+    </html>
+    <script>
+
+let num=10
+   let iseven = new Promise(function(resolve,reject){
+
+
+    if(num%2==0){
+
+        resolve("the number is even")
+    }
+
+    else{
+
+        reject("the numberbis odd")
+    }
+   })
+
+
+   console.log(iseven)
+
+   iseven.then((fromresolve)=>console.log(fromresolve));
+   iseven.catch((fromresolve)=>console.log(fromresolve));
+    </script>

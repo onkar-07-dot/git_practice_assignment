@@ -1,0 +1,316 @@
+<html>
+
+<head>
+    <title> Layout-5</title>
+</head>
+
+<body>
+    
+    <style>
+
+     .grid{
+         
+        display: grid;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-columns: repeat(2,1fr);
+        gap : 20px;
+        width: 80%;
+        height :400px;
+        margin:auto;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+     }
+
+
+     .grid>div:nth-child(1){
+
+        background-color: rgb(249, 248, 246);
+     }
+     .grid>div:nth-child(2){
+
+        background-color: rgb(249, 248, 246);
+     }
+     .grid>div:nth-child(3){
+
+        background-color: rgb(249, 248, 246);
+     }
+     .grid>div:nth-child(4){
+
+        background-color: rgb(249, 248, 246);
+     }
+
+    
+
+   img{
+
+    
+    width:40%;
+    height: 90%;
+    padding: 10px 10px 10px 10px;
+  
+    
+
+   }
+
+   
+
+    
+   
+
+   .grid > div{
+
+    display:flex;
+    
+   }
+
+   #info {
+
+    margin-left: 30px;
+   }
+   button{
+
+    border-radius: 5px;
+    color :white;
+    border: none;
+    padding: 10px 10px 10px 10px;
+    background-color: rgb(6, 123, 212);
+   }
+
+
+   .appoint{
+
+      display:grid;
+       grid-template-rows: repeat(1,1fr);
+        grid-template-columns: repeat(3,1fr);
+        gap : 20px;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        height: 300px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+   }
+
+   .appoint>div:nth-child(1){
+    background-color: rgb(249, 248, 246);
+
+   }
+   
+   .appoint>div:nth-child(2){
+    background-color: rgb(249, 248, 246);
+
+   }
+   .appoint>div:nth-child(3){
+     background-color: rgb(249, 248, 246);
+
+   }
+
+
+   .pic > img{
+
+    height: 50%;
+   }
+
+
+   #last{
+
+    display:flex;
+    width:80%;
+    margin:auto;
+    
+    ;
+
+
+   }
+
+    #last > div:nth-child(1){
+
+      background-color: rgb(249, 248, 246);
+      margin-top:100px;
+      text-align: left;
+      
+      
+
+    }
+
+     #last > div:nth-child(2){
+
+      background-color: rgb(249, 248, 246);
+      margin-top:100px;
+      text-align: center;
+      
+      
+      
+    }
+
+  #doctor {
+
+    display:flex;
+    width:100%;
+    height:300px;
+    
+
+
+  }
+
+  .pic > img{
+
+    height: 200px;
+    width:80%;
+    padding-top: 20px;
+  }
+  
+
+
+  @media all and (min-width:400px) and (max-width:780px){
+
+     .grid{
+         
+        display: grid;
+        grid-template-rows: repeat(4,1fr);
+        grid-template-columns: repeat(1,1fr);
+        
+     }
+
+     .grid > div{
+
+    flex-direction:column;
+     align-items: center;
+    text-align: center;
+    
+   }
+    img{
+
+    
+    width:100%;
+    height: auto;
+    }
+
+     .appoint{
+
+      display:grid;
+       grid-template-rows: repeat(3,1fr);
+        grid-template-columns: repeat(1,1fr);
+     }
+
+      #last{
+
+    flex-direction: column;
+    align-items: center;
+
+
+   }
+
+   #doctor {
+
+     flex-direction: column;
+    align-items: center;
+
+
+  }
+
+  }
+
+   
+   
+    </style>
+
+
+<div>
+         <h2  style="text-align: center;"> North East Largest Network For Health Care  </h2>
+<p style="text-align: center;"> Find best doctor across specilities for hospitals in your city</p>
+    </div>
+<div class="grid">
+    
+   
+    <div>
+        
+        <img src="https://cdn.prod.website-files.com/67a429737852744b0f8481b6/67a429737852744b0f8486a4_12%201.png"/>
+        <div id="info">
+        <h3>Book Lab Test</h3>
+        <p>Its fast , easy and secure</p>
+        <button> find diagnotic center</button>
+    </div>
+     </div>
+    <div><img src="https://cdn.openviowebsites.com/source/sites/d33e65a8-5b92-4bf9-91f5-1c3d92a4af2c/images/blood-test-thumb-1.webp"/>
+        <div id="info">
+        <h3>Book Lab Test</h3>
+        <p>Its fast , easy and secure</p>
+        <button> find diagnotic center</button>
+    </div>
+</div>
+    <div>
+        <img src="https://www.aksharimaging.com/blog/wp-content/uploads/2024/06/Blood-Tests-for-Diabetes.jpg"/>
+        <div id="info">
+        <h3>Book Lab Test</h3>
+        <p>Its fast , easy and secure</p>
+        <button> find diagnotic center</button>
+    </div>
+    </div>
+    <div>
+        <img src="https://www.metropolisindia.com/upgrade/blog/upload/2020/09/feature-753x500-1.png"/>
+        <div id="info">
+        <h3>Book Lab Test</h3>
+        <p>Its fast , easy and secure</p>
+        <button> find diagnotic center</button>
+    </div>
+    </div>
+</div>
+
+<h2 style="margin-top: 60px;text-align: center"> Discover the Online Appointment!</h2>
+<p style="text-align: center;"> A step by step giude to build an on-demand appointment for patients </p>
+
+<div class="appoint">
+    <div class="pic">
+        <img  src="https://www.metropolisindia.com/upgrade/blog/upload/2020/09/feature-753x500-1.png" alt="">
+        <h3> Find doctor </h3>
+        <p> with more than 1000+ doctor and mission to provide best care Health care service</p>
+    </div>
+    <div class="pic">
+         <img  src="https://cdn.prod.website-files.com/65fda7b5fdef3cef45c71e36/660a91808e49b57ee2409472_655b6616bb8a0c6df94ea19b_Screenshot%25202023-11-20%2520214802.jpeg "/>     <h3> Find doctor </h3>
+        <p> with more than 1000+ doctor and mission to provide best care Health care service</p>
+    </div>
+    <div class="pic">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-fRM7MvvjpSR-zPRoVIujBCxMSeKoIB92jAZcK4jPCFsuZTa_82G21hxSowBQzn8oPtY&usqp=CAU" alt="">
+        <h3> Find doctor </h3>
+        <p> with more than 1000+ doctor and mission to provide best care Health care service</p>
+    </div>
+
+</div>
+
+
+
+
+<div id="last">
+
+    <div><h3 >Book Our Doctor</h3>
+    <p> Quick Appointment with doctor</p>
+    <p>QuickBook is an Online Portal for all your health needs.</p>
+    <p>Our team od medical experts is there for youfrom finding the right doctor and hospital to booking
+    appointmentand giving any kind of medical help in between</p>
+    <button>View All</button></div>
+
+
+    <div id="doctor">
+        <div  class= "pic">
+          <img  src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+        <h4>Dr.Harris Morris</h4>
+        </div >
+        <div  class= "pic"><img  src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+             <h4>Dr.Harris Morris</h4>
+        </div>
+        <div  class= "pic">
+            <img  src="https://t4.ftcdn.net/jpg/03/20/52/31/360_F_320523164_tx7Rdd7I2XDTvvKfz2oRuRpKOPE5z0ni.jpg" alt="">
+             <h4>Dr.Harris Morris</h4>
+        </div>
+        
+    </div>
+</div>
+     
+   
+
+         
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!-- Grid structures -->
+
+<!-- placement using line -->
+
+<!-- placement using area-name  -->
+
+
+<html>
+    <head>
+        <title> Grid</title>
+    </head>
+    <body>
+
+        <style>
+
+            #container{
+
+                display: grid;
+                grid-template-rows: 100px 100px   ;
+                grid-template-columns: 100px 100px 100px;
+                gap: 10px;
+                justify-content: center;
+
+                grid-template-areas:"yl bl rd"
+                "sk pp gr";
+            }
+
+            #container > div:nth-child(1){
+
+                background-color: red;
+                grid-area: rd;
+              
+    
+
+            }
+            #container > div:nth-child(2){
+
+                background-color: rgb(17, 34, 160);
+                grid-area: bl;
+
+            }
+            #container > div:nth-child(3){
+
+                background-color: rgb(154, 200, 218);
+                grid-area: sk;
+
+            }
+            #container > div:nth-child(4){
+
+                background-color: rgb(123, 220, 66);
+                grid-area: pp;
+
+            }
+            #container > div:nth-child(5){
+
+                background-color: rgb(205, 211, 45);
+                grid-area: yl;
+                grid-area: 1/1/2/2;
+
+            }
+            #container > div:nth-child(6){
+
+                background-color: rgb(101, 112, 104);
+                grid-area: gr;
+
+            }
+        </style>
+
+
+        <div id="container">
+
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+    </body>
+</html>
