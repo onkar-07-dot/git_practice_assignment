@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetching Data</title>
+    <meta charset="UTF-8" />
+    </head>
+    <body>
+        <h1>Vaccine Booth Alert system</h1>
+        <h5>Name : </h5><input type="text" placeholder="Enter your name"/>
+        <button id="reg">Register</button><br><br>
+       <ol id="list"></ol>
+        <button id="vac"> Start Vaccination</button>
+    </body>
+    <script>
+
+        let list =[]
+       // let display = document.querySelector("h3")
+       
+        
+        
+         document.querySelector("#reg").addEventListener("click",reg)
+
+        function reg(){
+            let name = document.querySelector("input").value
+            let userlist = document.querySelector("#list")
+            
+         // display.innerText = name      
+          if(name===""){
+            alert("Please enter a name before registering.");
+            return;
+        }   
+        
+        list.push(name)
+        userlist.innerHTML=""
+        list.forEach((item)=>{
+               
+            let li = document.createElement("li")
+            li.innerText = item;
+            userlist.appendChild(li)
+
+        })
+
+        document.querySelector("input").value = "";
+
+
+    }
+       
+    document.querySelector("#vac").addEventListener("click",vaccine)
+
+    function vaccine(){
+
+       if(list.length===0){
+        alert("No one is left to vaccination ")
+        return;
+       }
+       list.shift()
+       let userlist = document.querySelector("#list");S
+        userlist.innerHTML=""
+        list.forEach((item)=>{
+               
+            let li = document.createElement("li")
+            li.innerText = item;
+            userlist.appendChild(li)
+        });
+    }
+
+        
+       
+    </script>
