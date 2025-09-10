@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auth Page</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+ <style>
+    .hidden { display: none; }
+  </style>
+<body>
+
+  
+  <div id="login">
+    <form>
+      <h1>Login page</h1>
+      <h4>Your username or Email</h4>
+      <input id="username" type="text" placeholder="Your username or Email "/>
+
+      <h4>Your Password</h4>
+      <input id="Password" placeholder="Password"/><br><br>
+
+      <button>Login</button>
+    </form>
+  </div>
+
+  <h4>Not a member yet</h4>
+  <button><a href="#register">Join Us</a></button>
+
+  <hr>
+
+  
+  <div id="register">
+    <form>
+      <h1>Sign UP</h1>
+      <h4>Username</h4>
+      <input id="username" type="text" placeholder="username"/>
+
+      <h4>Firstname</h4>
+      <input id="Firstname" type="text" placeholder="Firstname"/>
+
+      <h4>Lastname</h4>
+      <input id="Lastname" type="text" placeholder="Lastname"/>
+
+      <h4>Your Email</h4>
+      <input id="Email" type="text" placeholder="Your Email"/>
+
+      <h4>Your Password</h4>
+      <input id="Password" type="text" placeholder="Your Password"/>
+
+      <h4>Avtar URL</h4>
+      <input id="Avtar" type="text" placeholder="Avtar URL"/><br><br>
+
+      <button>Sign up</button><br><br>
+    </form>
+  </div>
+
+  <button><a href="#login">Already a member</a></button>
+  <button><a href="#login">Go to login Page</a></button>
+
+  <script src="./auth.js"></script>
+</body>
+</html>
