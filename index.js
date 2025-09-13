@@ -1,55 +1,55 @@
 
-
 const exp = require("express")
-const app = exp()
 const fs = require("fs")
+const app = exp()
+const cors = require("cors")
+const {watchman} = require("./watchman_mid")
+const {timelogger} = require("./timelogger_mid")
+const {logger} = require("./logger")
+const {details} = require("./add_details")
+const {studentrouter} = require("./student_router")
+const {teacherrouter} = require("./teacher_router")
+
+
+// app.use(watchman)
+// app.use(timelogger)
+
+app.use(cors())
+app.use(logger)
+//app.use(details)
 app.use(exp.json())
+app.use("/student",studentrouter)
+app.use("/teacher",teacherrouter)
+
+app.post("/add",(req,res)=>{
+    console.log(req.body)
+    res.send("added sucessfully")
+})
 
 app.get("/",(req,res)=>{
-
-    res.end("Hello from the server")
+    res.send("this is the home page")
 })
+
+
+app.get("/contact",(req,res)=>{
+    res.send("this is the contact page")
+})
+
 
 app.get("/data",(req,res)=>{
-
-    res.end("data will be sent")
-})
-
-app.post("/adddata",(req,res)=>{
-
-    console.log(req.body)
-    res.end("data has been recorded")
-})
-
-app.put("/adddata",(req,res)=>{
-
-    console.log(req.body)
-    res.end("this is put command")
-})
-
-app.patch("/adddata",(req,res)=>{
-    res.end("id: 12")
-})
-
-// app.delete("/adddata",(res))
-
-app.get("/getalldata",(req,res)=>{
-    const data =fs.readFileSync("./db.json","utf-8")
-    const parse_data = JSON.parse(data)
-    console.log(parse_data.id)
-    res.send(parse_data.id)
+    res.send("this is the data page")
 })
 
 
-app.post("/getalldata",(req,res)=>{
-    const data =fs.readFileSync("./db.json","utf-8")
-    const parse_data = JSON.parse(data)
-    parse_data.push(req.body)
-    fs.writeFileSync("./db.json",JSON.stringify(parse_data),"utf-8")
-   // console.log(parse_data.title)
-    res.send("data added")
+app.get("/about",(req,res)=>{
+    const data = fs.readFileSync("./dummy.txt","utf-8")
+    res.send(data)
+    res.send("this is the about page")
 })
 
-app.listen(3000,()=>{
-    console.log("port created sucessfully on port 3000 ")
+
+app.listen(3500,()=>{
+    console.log("server is started")
 })
+
+
