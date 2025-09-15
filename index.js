@@ -1,55 +1,40 @@
 
-const exp = require("express")
-const fs = require("fs")
-const app = exp()
-const cors = require("cors")
-const {watchman} = require("./watchman_mid")
-const {timelogger} = require("./timelogger_mid")
-const {logger} = require("./logger")
-const {details} = require("./add_details")
-const {studentrouter} = require("./student_router")
-const {teacherrouter} = require("./teacher_router")
+const express = require("express")
+const app = express()
 
-
-// app.use(watchman)
-// app.use(timelogger)
-
-app.use(cors())
-app.use(logger)
-//app.use(details)
-app.use(exp.json())
-app.use("/student",studentrouter)
-app.use("/teacher",teacherrouter)
-
-app.post("/add",(req,res)=>{
-    console.log(req.body)
-    res.send("added sucessfully")
-})
 
 app.get("/",(req,res)=>{
-    res.send("this is the home page")
-})
-
-
-app.get("/contact",(req,res)=>{
-    res.send("this is the contact page")
-})
-
-
-app.get("/data",(req,res)=>{
-    res.send("this is the data page")
+    res.send("this is home page")
 })
 
 
 app.get("/about",(req,res)=>{
-    const data = fs.readFileSync("./dummy.txt","utf-8")
-    res.send(data)
-    res.send("this is the about page")
+    res.send("this is about page")
 })
 
+app.get("/data",(req,res)=>{
+    //res.send("this is about page")
+   
+    const data ={
+        banglore : 23,
+        mumbai : 22,
+        pune : 23,
+    }
 
-app.listen(3500,()=>{
-    console.log("server is started")
+    const {city} = req.query
+    res.send(`temprature of the ${city} is the ${data[city]}`)
+
+    
 })
 
+  app.get("/student/:roll_no",(req,res)=>{
 
+        const roll_no = req.params.roll_no
+        res.send(`data of students with the roll no ${roll_no}`)
+    })
+
+
+
+app.listen(3000,()=>{
+    console.log("server started successfully")
+})
