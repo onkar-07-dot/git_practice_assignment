@@ -1,67 +1,81 @@
 
 const express = require("express")
-const {connection } = require("./config/db")
-const {UserModel} = require("./models/model")
+const {connection} = require("./config/db")
+const {UserModel} = require("./models/user.models")
+const {authenticate} = require("./middlewares/authenticate")
+const bcrypt = require("bcrypt")
+const fs = require("fs")
 const jwt = require("jsonwebtoken")
 
 const app = express()
+
 app.use(express.json())
 
 app.get("/",(req,res)=>{
-    res.send("this is the home page")
+    res.send("home page")
 })
 
 app.post("/register",async(req,res)=>{
-    const payload = req.body
     try {
-      const user = new UserModel(payload)
-      await user.save()
-        res.send("register sucessfully",user)
-       
+        const {name,email,password} = req.body
+        await bcrypt.hash(password,10,async(err,hash)=>{
+        const user = new UserModel({
+            name , email, password:hash
+         })
+         await user.save()
+         res.send("registered")
+        })
+    
     } catch (error) {
-        res.send("Error in registering user")
+        res.send("not reistered")
         console.log(error)
-        
-    } 
-
+    }
 })
 
 app.post("/login",async(req,res)=>{
-    const {name , password} = req.body
-    try {
-        const getuser = await UserModel.find({name , password})
-        const token = jwt.sign({course :"backend"}, "node")
-        if(getuser.length>0){
-            res.send({"message" : "login done" , "token" : token})
-        }else{
-            res.send("wrong credential")
-        }
-        
-    } catch (error) {
-        console.log("something went wrong")
-        
-    }
-})
+    const {name,password} = req.body
 
-app.get("/data",(req,res)=>{
-    const token = req.headers.authorization
-    jwt.verify(token , "node" ,(err,decode)=>{
-        if(err){
-            res.send("invalid token")
+    const user = await UserModel.findOne({name})
+    const hashedpass = user?.password
+        bcrypt.compare(password,hashedpass ,(err,result)=>{
+
+        if(result){
+            const token = jwt.sign({userID : user._id},"SECRET")
+            res.send({"msg":"login successfully" , token})
+        }   
+        else{
+            res.send("login failed")
             console.log(err)
-        }else{
-            res.send("data..")
         }
-    })
+    }) 
 })
 
-app.listen(9090,async()=>{
+app.get("/report",authenticate,(req,res)=>{
+
+    res.send("here is the all reports")
+})
+
+
+app.get("/logout",(req,res)=>{
+
+    const token = req.headers.authorization?.split(" ")[1]
+    const blacklisttoken = JSON.parse(fs.readFileSync("./blacklist.json","utf-8"))
+    blacklisttoken.push(token)
+    fs.writeFileSync("./blacklist.json",JSON.stringify(blacklisttoken))
+    res.send("logged out successfully")
+
+})
+
+app.listen(5000,async()=>{
     try {
-        await connection
-        console.log("the connected to db")
+        await connection;
+        console.log("connected to the DB")
         
     } catch (error) {
+        console.log("failed to connect to the DB")
+        console.log(error)
         
     }
-    console.log("server is started")
+    console.log("port is started successfully")
 })
+
