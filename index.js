@@ -1,37 +1,36 @@
-
 const express = require("express")
-const {Server} = require("socket.io")
 const app = express()
-const http = require("http")
+const winston = require("winston")
+const expressWinston = require("express-winston")
 
-const httpserver = http.createServer(app)
+
+
+const logger = winston.createLogger({
+    level : "info",
+    transports :[
+        new winston.transports.File({filename:"app.log",level:"info",Timestamp : Date.now}),
+        new winston.transports.File({filename:"error.log",level:"error",Timestamp : Date.now}),
+        new winston.transports.File({filename:"warn.log",level:"warn",Timestamp : Date.now})
+    ],
+});
 
 app.get("/",(req,res)=>{
-    res.sendend("this is home page")
+    res.send("success")
+    console.log("entry point of server")
 })
 
-app.get("/about",(req,res)=>{
-    res.sendend("this is about page")
+app.get("/warning",(req,res)=>{
+    logger.log("warn","logging a warning message")
+    res.send("this is warning msg")
+})
+
+app.get("/error",(req,res)=>{
+    logger.log("error","logging a error message")
+    res.send("this is error msg")
 })
 
 
-httpserver.listen(8080)
-const io = new Server(httpserver)
-let count = 0
-let seat = 10
-io.on("connection" , (socket)=>{
-    console.log("client connected")
-    socket.emit("message","welcome to the socket server")
-    socket.emit("greeting","here is your welcome kit")
-    socket.on("hello",(msg)=> console.log(msg))
-    socket.emit("online",count++)
-    socket.broadcast.emit("info","we have new user in the town")
-
-    socket.on("disconnect",()=>{
-        count --;
-        socket.broadcast.emit("online",count)
-    })
-
-    io.emit("announcement",`hey we have only ${seat-count} left`)
+app.listen(9000,()=>{
+    console.log("the port is started on 9000");
+    logger.log("info","application start on port 9000")
 })
-
