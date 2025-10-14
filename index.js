@@ -1,36 +1,91 @@
+
 const express = require("express")
+const {Sequelize, DataTypes} = require("sequelize")
 const app = express()
-const winston = require("winston")
-const expressWinston = require("express-winston")
 
+app.use(express.json())
 
+const sequelize = new Sequelize("students" ,"root","Onkar@2676",{
 
-const logger = winston.createLogger({
-    level : "info",
-    transports :[
-        new winston.transports.File({filename:"app.log",level:"info",Timestamp : Date.now}),
-        new winston.transports.File({filename:"error.log",level:"error",Timestamp : Date.now}),
-        new winston.transports.File({filename:"warn.log",level:"warn",Timestamp : Date.now})
-    ],
-});
-
-app.get("/",(req,res)=>{
-    res.send("success")
-    console.log("entry point of server")
+    host:"localhost",
+    dialect : "mysql"
 })
 
-app.get("/warning",(req,res)=>{
-    logger.log("warn","logging a warning message")
-    res.send("this is warning msg")
+sequelize.authenticate().then(()=>console.log("connection successfull"))
+.catch(()=>console.log("connection failed"))
+
+const Users = sequelize.define("users",{
+    id :{
+        type : DataTypes.INTEGER,
+        primaryKey : true,
+        allowNull : false,
+
+    },
+    name:{
+        type : DataTypes.STRING,
+        allowNull : false
+    },
+    email:{
+        type : DataTypes.STRING,
+        allowNull:false,
+        unique : true
+    }
 })
 
-app.get("/error",(req,res)=>{
-    logger.log("error","logging a error message")
-    res.send("this is error msg")
+async function fetchdata(){
+
+    await sequelize.sync()
+
+    await Users.destroy({
+        where: {
+            id:1
+        }
+    })
+
+    async function insertuser(user){
+        await Users.create(user)
+    }
+
+    app.post("/users",(req,res)=>{
+        const user = req.body
+        insertuser(user)
+        res.send("data is added")
+    })
+    const data = await Users.findAll()
+   console.log(data)
+    .then(()=>{
+
+        Users.bulkCreate([{
+            id : 201,
+            name : "pushkar",
+            email:"push@gmail.com"
+
+        },{
+            id:202,
+            name: "shri",
+            email:"shri@gmail"
+        },
+        {
+            id:203,
+            name : "samu",
+            email : "samu@gmail.com"
+        }
+    ]).then(()=>console.log("data created successfully"))
+    })
+    .then((data)=>console.log(data))
+}
+
+fetchdata()
+sequelize.sync().then(()=>{
+
+    Users.create({id:"100", name:"onkar",email:"onkar@gmail"})
+
+}).then(()=>console.log("user created successfully"))
+.catch(()=>console.log("failed to create data"))
+
+app.listen(5000,()=>{
+    console.log("server started")
 })
 
 
-app.listen(9000,()=>{
-    console.log("the port is started on 9000");
-    logger.log("info","application start on port 9000")
-})
+
