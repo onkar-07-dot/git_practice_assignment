@@ -1,33 +1,40 @@
-import { useState } from "react";
-function Todo() {
-  const [data, setdata] = useState("");
-  const [todo, settodo] = useState([]);
+import react from 'react'
+import TodoInput from './todo_input'
+import TodoList from './todo_list'
+import {useState} from 'react'
 
-  const handlechange = (event) => {
-    setdata(event.target.value);
-  };
+const Initdata = [
+    { id : 1 , title : 'learn react' , status : false},
+    { id : 2 , title : "learn typeScript" , status : false},
+    { id : 3 , title :  " watch movie " , status : false}
+]
 
-  const addbtn = () => {
-    console.log(data);
-    settodo([...todo, data]);
-  };
-  console.log(todo);
+const Todo = ()=>{
 
-  const list = todo.map((text) => <li>{text}</li>);
-  console.log(list);
-  return (
-    <div>
-      <h1>TODO List</h1>
-      <input
-        value={data}
-        onChange={handlechange}
-        placeholder="write something here"
-      />
-      {/* <div>{data}</div> */}
-      <button onClick={addbtn}>add</button>
-      <ol>{list}</ol>
-    </div>
-  );
+const [data , setdata] = useState(Initdata)
+console.log(data)
+
+const addTodos = (TodoTitle)=>{
+    console.log(TodoTitle);
+    const payload = {
+    id : data.length+1,
+    title : TodoTitle,
+    status : false
+}
+setdata = ((prev)=>{
+
+    return  [ ...prev ,payload]
+})
+};
+
+
+    return (
+        <div>
+            <h1>TODO</h1> 
+            <TodoInput addtodofn='{addTodos}' />
+            <TodoList todoitems= {data}/>
+        </div>
+    )
 }
 
-export default Todo;
+export default Todo
